@@ -16,26 +16,27 @@ source:
 
 build:
   number: 0
+  features:
+      - vc9    # [win and py27]
+      - vc10   # [win and py34]
+      - vc14   # [win and py35]
 
 requirements:
   build:
     - cmake
-    - pkg-config      # [not win]
-    - {{ compiler('c') }}
-  host:
+    - python          # [win]
     - msinttypes      # [win]
-    - {{ compiler('c') }}
-  host:
-    - openssl         # [not win]
-    - libiconv        # [osx]
-    - curl
-    - libssh2
+    - openssl 1.0.*   # [not win]
+    - libiconv 1.15   # [osx]
+    - curl >=7.44.0,<8
+    - libssh2 1.8.*
+    - pkg-config      # [not win]
     - zlib
   run:
-    - openssl         # [not win]
-    - libiconv        # [osx]
-    - curl
-    - libssh2
+    - openssl 1.0.*   # [not win]
+    - libiconv 1.15   # [osx]
+    - curl >=7.44.0,<8
+    - libssh2 1.8.*
     - zlib
 
 test:
@@ -149,7 +150,7 @@ test:
     {% set libs = linux_libs %}                             # [linux]
     {% set libs = osx_libs %}                               # [osx]
     {% set libs = win_libs %}                               # [win]
-
+    
     {% for lib in libs %}
     - test -f $PREFIX/lib/{{ lib }}                         # [not win]
     - if not exist {{ lib }} exit 1                         # [win]
@@ -163,9 +164,9 @@ about:
 
   # The remaining entries in this section are optional, but recommended
   description: |
-    libgit2 is a portable, pure C implementation of the Git core methods
-    provided as a re-entrant linkable library with a solid API, allowing
-    you to write native speed custom Git applications in any language
+    libgit2 is a portable, pure C implementation of the Git core methods 
+    provided as a re-entrant linkable library with a solid API, allowing 
+    you to write native speed custom Git applications in any language 
     which supports C bindings.
 
 extra:

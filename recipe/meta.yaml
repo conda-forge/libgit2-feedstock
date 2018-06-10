@@ -20,8 +20,10 @@ build:
 requirements:
   build:
     - cmake
-    - msinttypes      # [win]
     - pkg-config      # [not win]
+    - {{ compiler('c') }}
+  host:
+    - msinttypes      # [win]
     - {{ compiler('c') }}
   host:
     - openssl         # [not win]

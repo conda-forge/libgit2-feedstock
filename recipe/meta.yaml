@@ -16,28 +16,32 @@ source:
 
 build:
   number: 0
+  features:
+      - vc9    # [win and py27]
+      - vc10   # [win and py34]
+      - vc14   # [win and py35]
 
 requirements:
   build:
     - cmake
-    - pkg-config      # [not win]
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-  host:
+    - python          # [win]
     - msinttypes      # [win]
-    - openssl         # [not win]
-    - libiconv        # [osx]
-    - curl
-    - libssh2
+    - openssl 1.0.*   # [not win]
+    - libiconv 1.15   # [osx]
+    - curl >=7.44.0,<8
+    - libssh2 1.8.*
+    - pkg-config      # [not win]
     - zlib
   run:
-    - openssl         # [not win]
-    - libiconv        # [osx]
-    - curl
-    - libssh2
+    - openssl 1.0.*   # [not win]
+    - libiconv 1.15   # [osx]
+    - curl >=7.44.0,<8
+    - libssh2 1.8.*
     - zlib
 
 test:
+  requires:
+    - python {{ environ['PY_VER'] + '*' }}  # [win]
   commands:
     # Include files.
     {% set includes = [

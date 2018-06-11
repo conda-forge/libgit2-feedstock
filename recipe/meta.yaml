@@ -37,8 +37,6 @@ requirements:
     - zlib
 
 test:
-  requires:
-    - python {{ environ['PY_VER'] + '*' }}  # [win]
   commands:
     # Include files.
     {% set includes = [

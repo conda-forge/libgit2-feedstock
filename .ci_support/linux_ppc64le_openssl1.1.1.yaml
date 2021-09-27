@@ -1,9 +1,9 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
 c_compiler:
-- clang
+- gcc
 c_compiler_version:
-- '11'
+- '9'
+cdt_name:
+- cos7
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -11,15 +11,13 @@ channel_targets:
 curl:
 - '7'
 cxx_compiler:
-- clangxx
+- gxx
 cxx_compiler_version:
-- '11'
-libiconv:
-- '1.16'
+- '9'
+docker_image:
+- quay.io/condaforge/linux-anvil-ppc64le
 libssh2:
 - '1'
-macos_machine:
-- x86_64-apple-darwin13.4.0
 openssl:
 - 1.1.1
 pcre2:
@@ -27,14 +25,10 @@ pcre2:
 pin_run_as_build:
   curl:
     max_pin: x
-  libiconv:
-    max_pin: x.x
-  openssl:
-    max_pin: x.x.x
   zlib:
     max_pin: x.x
 target_platform:
-- osx-64
+- linux-ppc64le
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

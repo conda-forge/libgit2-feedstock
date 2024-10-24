@@ -1,5 +1,5 @@
 {% set name = "libgit2" %}
-{% set version = "1.8.1" %}
+{% set version = "1.8.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://github.com/{{ name }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 8c1eaf0cf07cba0e9021920bfba9502140220786ed5d8a8ec6c7ad9174522f8e
+  sha256: 184699f0d9773f96eeeb5cb245ba2304400f5b74671f313240410f594c566a28
   patches:
     # TODO: Propose this patch to upstream.
     # Downside: This breaks pkg-config for static builds (not relevant for conda-forge).
     - 0001-Use-Requires.internal-instead-of-Requires.private.patch
 
 build:
-  number: 1
+  number: 0
   run_exports:
     # SONAME is based on minor version
     - {{ pin_subpackage("libgit2", max_pin="x.x") }}

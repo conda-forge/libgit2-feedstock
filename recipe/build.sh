@@ -8,6 +8,7 @@ cmake ${CMAKE_ARGS} .. \
     -DCMAKE_FIND_ROOT_PATH=$PREFIX \
     -DCMAKE_INSTALL_LIBDIR=lib \
     -DREGEX_BACKEND=pcre2 \
+    -DUSE_SSH=ON \
     -DCMAKE_BUILD_TYPE=Release
 
 ninja install

@@ -10,8 +10,6 @@ curl:
 - '8'
 cxx_compiler:
 - vs2019
-libgit2:
-- '1.8'
 libssh2:
 - '1'
 target_platform:

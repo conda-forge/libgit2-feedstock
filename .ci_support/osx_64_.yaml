@@ -20,8 +20,6 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '18'
-libgit2:
-- '1.8'
 libiconv:
 - '1'
 libssh2:

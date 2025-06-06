@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: libgit2
-  version: 1.9.0
+  version: "1.9.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,14 +10,14 @@ package:
 
 source:
   url: https://github.com/${{ name }}/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: 75b27d4d6df44bd34e2f70663cfd998f5ec41e680e1e593238bbe517a84c7ed2
+  sha256: 14cab3014b2b7ad75970ff4548e83615f74d719afe00aa479b4a889c1e13fc00
   patches:
     # TODO: Propose this patch to upstream.
     # Downside: This breaks pkg-config for static builds (not relevant for conda-forge).
     - 0001-Use-Requires.internal-instead-of-Requires.private.patch
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:

@@ -17,7 +17,7 @@ source:
     - 0001-Use-Requires.internal-instead-of-Requires.private.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:

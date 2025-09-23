@@ -7,7 +7,7 @@
 
 [project]
 name = "libgit2-feedstock"
-version = "3.50.0"  # conda-smithy version used to generate this file
+version = "3.52.1"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/libgit2-feedstock"
 authors = ["@conda-forge/libgit2"]
 channels = ["conda-forge"]
@@ -64,6 +64,7 @@ description = "List contents of libgit2-feedstock packages built for variant win
 
 [feature.smithy.dependencies]
 conda-smithy = "*"
+shellcheck = "*"
 [feature.smithy.tasks.build-locally]
 cmd = "python ./build-locally.py"
 description = "Build packages locally using the same setup scripts used in conda-forge's CI"

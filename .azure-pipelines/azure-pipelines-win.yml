@@ -13,12 +13,11 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         build_workspace_dir: C:\bld
         store_build_artifacts: true
-        tools_install_dir: D:\Miniforge
+        tools_install_dir: /test
         SHORT_CONFIG: win_64_
   timeoutInMinutes: 360
   variables:
     CONDA_BLD_PATH: /test2
-    MINIFORGE_HOME: /test
     UPLOAD_TEMP: D:\\tmp
 
   steps:

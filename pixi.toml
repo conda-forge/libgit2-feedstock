@@ -9,7 +9,7 @@ version = "3.57.1.dev0+g6ca6a0bd6.d20260319"  # conda-smithy version used to gen
 description = "Pixi configuration for conda-forge/libgit2-feedstock"
 authors = ["@conda-forge/libgit2"]
 channels = ["conda-forge"]
-platforms = ["linux-64", "osx-64", "win-64"]
+platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64"]
 requires-pixi = ">=0.59.0"
 
 [dependencies]

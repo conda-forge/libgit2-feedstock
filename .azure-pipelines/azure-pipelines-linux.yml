@@ -45,6 +45,10 @@ jobs:
     displayName: Configure binfmt_misc
 
   - script: |
+        export MINIFORGE_HOME=$(tools_install_dir)
+        export CONDA_BLD_PATH=$(build_workspace_dir)
+        export MINIFORGE_HOME="${MINIFORGE_HOME/#~/${HOME}}"
+        export CONDA_BLD_PATH="${CONDA_BLD_PATH/#~/${HOME}}"
         export CI=azure
         export flow_run_id=azure_$(Build.BuildNumber).$(System.JobAttempt)
         export remote_url=$(Build.Repository.Uri)
@@ -64,10 +68,13 @@ jobs:
       STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
 
   - script: |
+        export MINIFORGE_HOME=$(tools_install_dir)
+        export CONDA_BLD_PATH=$(build_workspace_dir)
+        export MINIFORGE_HOME="${MINIFORGE_HOME/#~/${HOME}}"
+        export CONDA_BLD_PATH="${CONDA_BLD_PATH/#~/${HOME}}"
         export CI=azure
         export CI_RUN_ID=$(build.BuildNumber).$(system.JobAttempt)
         export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-        export CONDA_BLD_PATH=build_artifacts
         export ARTIFACT_STAGING_DIR="$(Build.ArtifactStagingDirectory)"
         # Archive everything in CONDA_BLD_PATH except environments
         export BLD_ARTIFACT_PREFIX=conda_artifacts

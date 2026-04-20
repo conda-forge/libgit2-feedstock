@@ -1,6 +1,7 @@
 azure:
   settings_win:
-    SET_PAGEFILE: 1
+    variables:
+      SET_PAGEFILE: "True"
 bot:
   automerge: true
 build_platform:
@@ -15,8 +16,6 @@ github:
   branch_name: main
   tooling_branch_name: main
 test: native_and_emulated
-workflow_settings:
-  store_build_artifacts: true
 provider:
   linux_64: azure
   linux_aarch64: azure

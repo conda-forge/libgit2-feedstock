@@ -22,6 +22,44 @@ jobs:
       max-parallel: 50
       matrix:
         include:
+          - CONFIG: linux_64_
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: ubuntu
+            runs_on: ['ubuntu-latest']
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+          - CONFIG: linux_aarch64_
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: ubuntu
+            runs_on: ['ubuntu-latest']
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+          - CONFIG: linux_ppc64le_
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: ubuntu
+            runs_on: ['ubuntu-latest']
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: build_artifacts
+          - CONFIG: osx_64_
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: macos
+            runs_on: ['macos-15-intel']
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: ~/miniforge3/conda-bld
+          - CONFIG: osx_arm64_
+            STORE_BUILD_ARTIFACTS: False
+            UPLOAD_PACKAGES: True
+            os: macos
+            runs_on: ['macos-15-intel']
+            tools_install_dir: ~/miniforge3
+            build_workspace_dir: ~/miniforge3/conda-bld
           - CONFIG: win_64_
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True

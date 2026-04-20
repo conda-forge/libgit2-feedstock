@@ -10,8 +10,6 @@ curl:
 - '8'
 cxx_compiler:
 - vs2022
-github_actions_labels:
-- blacksmith-16vcpu-windows-2025
 libssh2:
 - '1'
 target_platform:

@@ -108,6 +108,7 @@ ${DOCKER_EXECUTABLE} run ${DOCKER_RUN_ARGS} \
            -v "${RECIPE_ROOT}":/home/conda/recipe_root:rw${VOLUME_SUFFIX},delegated \
            -v "${FEEDSTOCK_ROOT}":/home/conda/feedstock_root:rw${VOLUME_SUFFIX},delegated \
            -v "${CONDA_BLD_PATH}":/home/conda/feedstock_root/build_artifacts:rw${VOLUME_SUFFIX},delegated \
+           -v "${MINIFORGE_HOME}":/opt/conda:rw${VOLUME_SUFFIX},delegated \
            -e CONFIG \
            -e HOST_USER_ID \
            -e UPLOAD_PACKAGES \

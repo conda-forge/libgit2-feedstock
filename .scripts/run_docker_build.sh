@@ -42,7 +42,7 @@ if hash docker-machine 2> /dev/null && docker-machine active > /dev/null; then
     export HOST_USER_ID=$(docker-machine ssh $(docker-machine active) id -u)
 fi
 
-ARTIFACTS="$FEEDSTOCK_ROOT/build_artifacts"
+ARTIFACTS="$CONDA_BLD_PATH"
 
 if [ -z "$CONFIG" ]; then
     set +x

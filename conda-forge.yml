@@ -1,3 +1,6 @@
+azure:
+  settings_win:
+    SET_PAGESIZE: 1
 bot:
   automerge: true
 build_platform:
@@ -15,8 +18,8 @@ test: native_and_emulated
 workflow_settings:
   store_build_artifacts: true
 provider:
-  linux_64: github_actions
-  linux_aarch64: github_actions
-  osx_64: github_actions
-  osx_arm64: github_actions
-  win_64: github_actions
+  linux_64: azure
+  linux_aarch64: azure
+  osx_64: azure
+  osx_arm64: azure
+  win_64: azure

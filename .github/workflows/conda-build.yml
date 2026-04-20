@@ -28,7 +28,7 @@ jobs:
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-            tools_install_dir: ~/miniforge3
+            tools_install_dir: dupa
             build_workspace_dir: build_artifacts
           - CONFIG: linux_aarch64_
             STORE_BUILD_ARTIFACTS: False
@@ -36,7 +36,7 @@ jobs:
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-            tools_install_dir: ~/miniforge3
+            tools_install_dir: dupa
             build_workspace_dir: build_artifacts
           - CONFIG: linux_ppc64le_
             STORE_BUILD_ARTIFACTS: False
@@ -44,36 +44,36 @@ jobs:
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-            tools_install_dir: ~/miniforge3
+            tools_install_dir: dupa
             build_workspace_dir: build_artifacts
           - CONFIG: osx_64_
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: macos
             runs_on: ['macos-15-intel']
-            tools_install_dir: ~/miniforge3
-            build_workspace_dir: ~/miniforge3/conda-bld
+            tools_install_dir: dupa
+            build_workspace_dir: dupa/conda-bld
           - CONFIG: osx_arm64_
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: macos
             runs_on: ['macos-15-intel']
-            tools_install_dir: ~/miniforge3
-            build_workspace_dir: ~/miniforge3/conda-bld
+            tools_install_dir: dupa
+            build_workspace_dir: dupa/conda-bld
           - CONFIG: win_64_
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: windows
             runs_on: ['windows-latest']
-            tools_install_dir: D:\Miniforge
-            build_workspace_dir: D:\\bld\\
+            tools_install_dir: dupa
+            build_workspace_dir: \\bld\\
           - CONFIG: win_arm64_
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: windows
             runs_on: ['windows-11-arm']
-            tools_install_dir: C:\Miniforge
-            build_workspace_dir: C:\\bld\\
+            tools_install_dir: dupa
+            build_workspace_dir: \\bld\\
     steps:
 
     - name: Checkout code

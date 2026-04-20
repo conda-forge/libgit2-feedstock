@@ -18,6 +18,7 @@ source:
 
 build:
   number: 0
+  skip: not linux or not x86_64
 
 requirements:
   build:

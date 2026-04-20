@@ -1,6 +1,6 @@
 azure:
   settings_win:
-    SET_PAGESIZE: 1
+    SET_PAGEFILE: 1
 bot:
   automerge: true
 build_platform:

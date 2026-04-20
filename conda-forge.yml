@@ -14,12 +14,6 @@ github:
 test: native_and_emulated
 workflow_settings:
   store_build_artifacts: true
-  tools_install_dir:
-    - os: linux
-      value: ~/foo
-  build_workspace_dir:
-    - os: linux
-      value: ~/bar
 provider:
   linux_64: github_actions
   linux_aarch64: github_actions

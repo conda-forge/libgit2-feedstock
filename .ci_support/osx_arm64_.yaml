@@ -20,6 +20,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '19'
+github_actions_labels:
+- blacksmith-12vcpu-macos-latest
 libiconv:
 - '1'
 libssh2:

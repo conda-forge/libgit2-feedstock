@@ -26,7 +26,7 @@ jobs:
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
-            runs_on: ['blacksmith-16vcpu-ubuntu-2404']
+            runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
             tools_install_dir: ~/miniforge3
             build_workspace_dir: build_artifacts
@@ -34,7 +34,7 @@ jobs:
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
-            runs_on: ['blacksmith-16vcpu-ubuntu-2404-arm']
+            runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
             tools_install_dir: ~/miniforge3
             build_workspace_dir: build_artifacts
@@ -50,28 +50,21 @@ jobs:
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: macos
-            runs_on: ['blacksmith-12vcpu-macos-latest']
+            runs_on: ['macos-15-intel']
             tools_install_dir: ~/miniforge3
             build_workspace_dir: ~/miniforge3/conda-bld
           - CONFIG: osx_arm64_
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: macos
-            runs_on: ['blacksmith-12vcpu-macos-latest']
+            runs_on: ['macos-15-intel']
             tools_install_dir: ~/miniforge3
             build_workspace_dir: ~/miniforge3/conda-bld
-          - CONFIG: win_64_
-            STORE_BUILD_ARTIFACTS: False
-            UPLOAD_PACKAGES: True
-            os: windows
-            runs_on: ['blacksmith-16vcpu-windows-2025']
-            tools_install_dir: C:\Miniforge
-            build_workspace_dir: C:\\bld\\
           - CONFIG: win_arm64_
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: windows
-            runs_on: ['blacksmith-16vcpu-windows-2025']
+            runs_on: ['windows-11-arm']
             tools_install_dir: C:\Miniforge
             build_workspace_dir: C:\\bld\\
     steps:

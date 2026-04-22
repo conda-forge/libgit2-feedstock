@@ -22,7 +22,6 @@ jobs:
         tools_install_dir: C:\foo
   timeoutInMinutes: 360
   variables:
-    MINIFORGE_HOME: C:\foo
     SET_PAGEFILE: 'True'
     UPLOAD_TEMP: D:\\tmp
 

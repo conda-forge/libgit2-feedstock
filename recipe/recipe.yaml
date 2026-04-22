@@ -18,6 +18,7 @@ source:
 
 build:
   number: 0
+  skip: not win64
 
 requirements:
   build:

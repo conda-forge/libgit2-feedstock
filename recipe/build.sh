@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exit 1
+
 mkdir build && cd build
 cmake ${CMAKE_ARGS} .. \
     -GNinja \

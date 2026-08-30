@@ -29,9 +29,10 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
   host:
-    - if: win
+    - if: target_platform == "win-64"
       then: msinttypes
-      else: openssl
+    - if: not win
+      then: openssl
     - if: osx
       then: libiconv
     - if: unix
@@ -45,7 +46,8 @@ requirements:
 tests:
   - requirements:
       run:
-        - pkg-config
+        - if: target_platform != "win-arm64"
+          then: pkg-config
     script:
       - if: not win
         then: test -f $PREFIX/include/git2.h
@@ -56,7 +58,28 @@ tests:
         then:
           - if not exist %LIBRARY_LIB%\\git2.lib exit 1
           - if not exist %LIBRARY_BIN%\\git2.dll exit 1
-      - pkg-config --cflags --libs libgit2
+      - if: target_platform != "win-arm64"
+        then: pkg-config --cflags --libs libgit2
+  - files:
+      recipe:
+        - test_win_arm64.c
+    requirements:
+      run:
+        - if: target_platform == "win-arm64"
+          then: ${{ compiler('c') }}
+    script:
+      - if: target_platform == "win-arm64"
+        then:
+          - call %CC% /nologo /I"%LIBRARY_INC%" test_win_arm64.c /link /LIBPATH:"%LIBRARY_LIB%" git2.lib /OUT:libgit2_consumer.exe
+          - if errorlevel 1 exit 1
+          - libgit2_consumer.exe
+          - if errorlevel 1 exit 1
+          - dumpbin /headers "%LIBRARY_BIN%\git2.dll" | findstr /I /C:"AA64 machine (ARM64)"
+          - if errorlevel 1 exit 1
+          - dumpbin /headers libgit2_consumer.exe | findstr /I /C:"AA64 machine (ARM64)"
+          - if errorlevel 1 exit 1
+      - if: target_platform != "win-arm64"
+        then: echo "Native Windows ARM64 consumer test only"
 
 about:
   license: GPL-2.0-only WITH GCC-exception-2.0
@@ -73,6 +96,8 @@ about:
   homepage: https://libgit2.github.com
 
 extra:
+  # Required by the current feedstock-name lint because the package name is templated.
+  feedstock-name: libgit2
   recipe-maintainers:
     - shadowwalkersb
     - xhochy

@@ -5,7 +5,7 @@ context:
   version: "1.9.7"
 
 package:
-  name: ${{ name|lower }}
+  name: libgit2
   version: ${{ version }}
 
 source:
@@ -17,7 +17,7 @@ source:
     - 0001-Use-Requires.internal-instead-of-Requires.private.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -29,9 +29,10 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
   host:
-    - if: win
+    - if: target_platform == "win-64"
       then: msinttypes
-      else: openssl
+    - if: not win
+      then: openssl
     - if: osx
       then: libiconv
     - if: unix

@@ -24,7 +24,7 @@ requirements:
     - cmake
     - ninja
     - if: not win
-      then: pkg-config
+      then: pkgconf
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}

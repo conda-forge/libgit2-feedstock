@@ -17,14 +17,14 @@ source:
     - 0001-Use-Requires.internal-instead-of-Requires.private.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
     - cmake
     - ninja
     - if: not win
-      then: pkg-config
+      then: pkgconf
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
